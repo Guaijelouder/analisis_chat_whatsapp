@@ -199,7 +199,6 @@ fig.update_layout(
 ## Paso 4: Estadísticas de los miembros del grupo
 
 #### Miembros más activos
-
 # Determinar los miembros más activos del grupo
 df_MiembrosActivos = df.groupby('Miembro')['Mensaje'].count().sort_values(ascending=False).to_frame()
 df_MiembrosActivos.reset_index(inplace=True)
@@ -212,7 +211,6 @@ with col2:
 #####################################
 
 # #### Estadísticas por miembro
-
 # Separar mensajes (sin multimedia) y multimedia (stickers, fotos, videos)
 multimedia_df = df[df['Mensaje'] == '<Media omitted>']
 mensajes_df = df.drop(multimedia_df.index)
@@ -275,15 +273,12 @@ miembro_stats_df['Emojis'] = miembro_stats_df['Emojis'].apply(int)
 miembro_stats_df['Links'] = miembro_stats_df['Links'].apply(int)
 miembro_stats_df = miembro_stats_df.sort_values(by=['Mensajes'], ascending=False)
 
-#####################################
+
 #####################################
 st.subheader('¿Cómo se distribuyen nuestros mensajes?')
 st.write(miembro_stats_df)
 #####################################
-#####################################
 
-
-#####################################
 #####################################
 st.header('Los emojis más usados')
 col1, col2 = st.columns([1, 2])
@@ -295,8 +290,6 @@ with col2:
     st.plotly_chart(fig)
 
 ####################################
-####################################
-
 
 ## Paso 5: Estadísticas del comportamiento del grupo"""
 
@@ -342,12 +335,10 @@ fig.update_yaxes(title_text='# Mensajes')
 #fig.show()
 
 ####################################
-####################################
 st.header('¿En qué hora hablamos más?')
 st.plotly_chart(fig)
 ####################################
-####################################
-    
+ 
 #### Número de mensajes por día"""
 
 # Crear una columna de 1 para realizar el conteo de mensajes
@@ -355,7 +346,6 @@ df['# Mensajes por día'] = 1
 
 # Sumar (contar) los mensajes que tengan la misma fecha
 date_df = df.groupby('Dia Semana').count().reset_index()
-
 
 # Plotear la cantidad de mensajes respecto del tiempo
 fig = px.line(date_df, x='Dia Semana', y='# Mensajes por día', color_discrete_sequence=['salmon'], template='plotly_dark')
@@ -405,13 +395,9 @@ fig.update_yaxes(title_text='# Mensajes')
 #fig.show()
 
 ####################################
-####################################
 st.header('El dia que más hablamos')
 st.plotly_chart(fig)
 ####################################
-####################################
-
-
 
 #### Word Cloud de palabras más usadas"""
 
