@@ -439,5 +439,5 @@ wordcloud = WordCloud(width = 1200, height = 1200, background_color ='black', st
 
 #############################
 st.header('Nuestro wordcloud del ultimo añito')
-st.image(wordcloud.to_array(), caption='Las palabras más usadas por Tutito y Ninino', width=1200)
+st.image(wordcloud.to_array(), caption='Las palabras más usadas por Tutito y Ninino 💚', width=1200)
 #############################
